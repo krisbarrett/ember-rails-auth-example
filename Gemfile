@@ -44,3 +44,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'devise'
+gem 'ember-rails'
+gem 'ember-source', '1.4.0'
+gem "ember-data-source", "1.0.0.beta.7"
