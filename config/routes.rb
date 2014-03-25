@@ -2,7 +2,7 @@ App::Application.routes.draw do
   get "assets/index"
   resources :posts
 
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "json_sessions" }
   root :to => 'assets#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
