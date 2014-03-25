@@ -5,3 +5,10 @@ App.Store = DS.Store.extend({
   // is built to work nicely with the ActiveModel::Serializers gem.
   adapter: 'adapter:-active-model'
 });
+
+$(function() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    return $.ajaxPrefilter(function(options, originalOptions, xhr) {
+        return xhr.setRequestHeader('X-CSRF-Token', token);
+    });
+});
