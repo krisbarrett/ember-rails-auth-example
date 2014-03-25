@@ -6,6 +6,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+
+    respond_to do |format|
+      format.html { render html: @posts }
+      format.json { render json: @posts }
+    end
   end
 
   # GET /posts/1
@@ -30,7 +35,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @post }
+        format.json { render json: @post }
       else
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
